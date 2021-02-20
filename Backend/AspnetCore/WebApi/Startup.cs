@@ -11,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebApi.Configuration;
 
 namespace WebApi
 {
@@ -28,10 +29,14 @@ namespace WebApi
         {
 
             services.AddControllers();
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebApi", Version = "v1" });
-            });
+
+            services.AddApiConfiguration();
+
+            services.AddDatabaseConfiguration(Configuration);
+
+            services.AddSettingsandAuthentication(Configuration);
+
+            services.AddServices();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
