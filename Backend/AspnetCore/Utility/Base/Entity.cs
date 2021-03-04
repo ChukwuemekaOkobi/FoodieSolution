@@ -2,16 +2,20 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Entity.Models
+namespace Utility.Base
 {
-    public class BaseEnity<T>
+    /// <summary>
+    /// Base Entity for creating database entities and generic implementations
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    public class Entity<T>
     {
         public T Id { get; set; }
 
         public DateTime CreatedAt { get; set; }
         public DateTime? ModifiedAt { get; set; }
 
-        public BaseEnity()
+        public Entity()
         {
             CreatedAt = DateTime.Now;
         }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Entity.Enum
 {
-    public class TransactionStatus
+    public enum TransactionStatus
     {
     }
 }

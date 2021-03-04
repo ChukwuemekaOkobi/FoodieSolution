@@ -6,10 +6,10 @@ namespace Utility.Helpers
 {
     public class PaginatedList<T>
     {
-        public int PageSize { get; set; }
-        public int PageIndex { get; set; }
-        public int TotalCount { get; set; }
-        public int TotalPages { get; set; }
+        public int Size { get; set; }
+        public int Index { get; set; }
+        public int Count { get; set; }
+        public int Pages { get; set; }
         public bool HasPrevious { get; set; }
         public bool HasNext { get; set; }
 
@@ -17,12 +17,12 @@ namespace Utility.Helpers
 
         public PaginatedList(IEnumerable<T> items, int count, int pageIndex, int pageSize)
         {
-            PageSize = pageSize;
-            PageIndex = pageIndex;
-            TotalCount = count;
-            TotalPages = (int)Math.Ceiling(count / (double)pageSize);
+            Size = pageSize;
+            Index = pageIndex;
+            Count = count;
+            Pages = (int)Math.Ceiling(count / (double)pageSize);
 
-            HasNext = pageIndex < TotalPages;
+            HasNext = pageIndex < Pages;
             HasPrevious = pageIndex > 1;
 
             Items = items;
